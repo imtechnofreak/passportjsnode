@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>{{pageTitle}}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  </head>
+<body>
+{{>header}}
+   <div class="container">
+     <h1>{{title}}</h1>
+     <p>Please signup!</p>
+     <ul class="errors">
+       {{#if errors}}
+           {{#each errors}}
+              <li class="alert alert-danger">{{msg}}</li>
+           {{/each}}
+       {{/if}}
+     </ul>  
+     <form method="post" action="/users/register">
+         <div class="form-group">
+           <label for="name">Name:</label>
+           <input name="name" type="text" class="form-control" id="name">
+         </div>
+         <div class="form-group">
+          <label for="name">UserName:</label>
+          <input name="username" type="text" class="form-control" id="username">
+         </div>
+         <div class="form-group">
+          <label for="email">Email address:</label>
+          <input name="email" type="email" class="form-control" id="email">
+         </div>
+         <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input name="pass" type="password" class="form-control" id="password">
+         </div>
+         <div class="form-group">
+          <label for="confrim password">Confirm Password</label>
+          <input name="pass2" type="password" class="form-control" id="password2">
+         </div>
+      <input class="btn btn-default" type="submit" value="Register"/>
+    </form>
+   </div>
+{{>footer}}
